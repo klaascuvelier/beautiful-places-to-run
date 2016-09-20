@@ -2,4 +2,5 @@
     <a routerLink="/">Beautiful Places To Run</a>
 </h1>
 
-<button class="login-button" (click)="login()">Log in</button>
+<button *ngIf="(auth | async) === null" class="login-button" (click)="login()">Log in</button>
+<a *ngIf="(auth | async) !== null" routerLink="" class="login-button">Me</a>
