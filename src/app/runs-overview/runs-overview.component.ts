@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Run } from "../types/run.type";
 import { Observable } from "rxjs";
+import { RunsService } from "../services/runs.service";
 
 @Component({
     selector: 'app-runs-overview',
@@ -9,9 +10,9 @@ import { Observable } from "rxjs";
 })
 export class RunsOverviewComponent implements OnInit {
 
-    @Input() runs:Observable<Array<Run>>;
+    private runs$ = this.runsService.runs$;
 
-    constructor() {
+    constructor(private runsService: RunsService) {
     }
 
     ngOnInit() {}

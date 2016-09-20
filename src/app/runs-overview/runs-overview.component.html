@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let run of runs | async">
+    <li *ngFor="let run of runs$ | async">
         <div class="cover-image" [ngStyle]="{ 'background-image': 'url(' + run.image + ')' }"></div>
         {{ run.location }}
     </li>
