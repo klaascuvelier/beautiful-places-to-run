@@ -5,8 +5,11 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from "angularfire2";
-import { HeaderComponent } from './header/header.component';
+
 import { RunsService } from "./services/runs.service";
+import { AuthService } from "./services/auth.service";
+
+import { HeaderComponent } from './header/header.component';
 import { RunsOverviewComponent } from './runs-overview/runs-overview.component';
 
 import * as firebase from 'firebase';
@@ -32,7 +35,7 @@ const firebaseConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [RunsService],
+  providers: [RunsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
