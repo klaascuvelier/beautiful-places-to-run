@@ -4,17 +4,35 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AngularFireModule } from "angularfire2";
+import { HeaderComponent } from './header/header.component';
+import { RunsService } from "./services/runs.service";
+import { RunsOverviewComponent } from './runs-overview/runs-overview.component';
+
+import * as firebase from 'firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZiYltRI85CCWMNVVJTm3nIRqjqeAZuXs",
+  authDomain: "beautiful-places-to-run.firebaseapp.com",
+  databaseURL: "https://beautiful-places-to-run.firebaseio.com",
+  storageBucket: "beautiful-places-to-run.appspot.com",
+  messagingSenderId: "863357431381"
+};
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    RunsOverviewComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [RunsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
