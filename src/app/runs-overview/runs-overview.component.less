@@ -1,7 +1,9 @@
 :host {
     flex: 1;
-    background: hotpink;
+    background: #fff;
 }
+
+@dimension: (100vw / 3);
 
 ul {
     margin: 0;
@@ -13,6 +15,14 @@ ul {
 
 li {
     display: block;
-    width: 25vw;
-    height: 25vw;
+    width: @dimension;
+
+    .cover-image {
+        width: 100%;
+        height: @dimension;
+        background-size: cover;
+        background-position: center center;
+        background-color: transparent;
+        background-repeat: no-repeat;
+    }
 }
