@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 })
 export class RunsOverviewComponent implements OnInit {
 
-    @Input('runs') runs:Observable<Array<Run>>;
+    @Input() runs:Observable<Array<Run>>;
 
     constructor() {
     }
