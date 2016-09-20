@@ -1,3 +1,6 @@
-<p>
-  runs-overview works!
-</p>
+<ul>
+    <li *ngFor="let run of runs | async">
+        <img [src]="run.image" />
+        {{ run.location }}
+    </li>
+</ul>
