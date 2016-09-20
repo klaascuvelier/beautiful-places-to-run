@@ -1,2 +1,2 @@
-<app-header></app-header>
+<app-header (onLogin)="login()" [auth]="auth$"></app-header>
 <app-runs-overview [runs]="runs$"></app-runs-overview>

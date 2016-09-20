@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RunsService } from "./services/runs.service";
+import { AuthService } from "./services/auth.service";
 
 @Component({
     selector: 'app-root',
@@ -9,8 +10,13 @@ import { RunsService } from "./services/runs.service";
 export class AppComponent {
 
     private runs$ = this.runsService.runs$;
+    private auth$ = this.authService.auth$;
 
-    constructor (private runsService:RunsService) {
+    constructor (private runsService:RunsService, private authService:AuthService) {
 
+    }
+
+    login () {
+        this.authService.doLogin();
     }
 }
