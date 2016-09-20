@@ -1,6 +1,9 @@
 <ul>
     <li *ngFor="let run of runs$ | async">
-        <div class="cover-image" [ngStyle]="{ 'background-image': 'url(' + run.image + ')' }"></div>
-        {{ run.location }}
+        <a href="#">
+            <div class="cover-image" [ngStyle]="{ 'background-image': 'url(' + run.image + ')' }"></div>
+            {{ run.location }}
+        </a>
+
     </li>
 </ul>
