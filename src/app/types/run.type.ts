@@ -1,3 +1,6 @@
 export interface Run {
-    name: String
+    location: String,
+    description: String,
+    link: String,
+    image: String
 }
