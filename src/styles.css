@@ -7,8 +7,53 @@ html, body {
     font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
     font-size: 14px;
     line-height: 1.4;
+    color: #333333;
 }
 
 * {
     box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    border: 1px solid #bbe4e4;
+    border-radius: 2px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 10px;
+    color: #333333;
+}
+
+textarea {
+    height: 150px;
+}
+
+
+.admin-wrapper {
+    margin: 0 5%;
+}
+
+table {
+    margin: 50px 0;
+}
+
+table td {
+    border: 1px solid #bbe4e4;
+    padding: 5px 5px;
+    border-collapse: collapse;
+}
+
+table th {
+    border: 1px solid #bbe4e4;
+    padding: 5px 5px;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+table tr:nth-child(2n+1) td {
+    background: #fafafa;
 }
