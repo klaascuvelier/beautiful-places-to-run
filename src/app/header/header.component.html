@@ -2,5 +2,21 @@
     <a routerLink="/">Beautiful Places To Run</a>
 </h1>
 
-<button *ngIf="(auth | async) === null" class="login-button" (click)="login()">Log in</button>
-<a *ngIf="(auth | async) !== null" routerLink="" class="login-button">Me</a>
+<ul class="header-actions">
+    <li *ngIf="(auth | async) === null">
+        <button class="login-button" (click)="login()">Log in</button>
+    </li>
+
+    <li *ngIf="(auth | async) !== null && (auth | async).isAdmin">
+        <a routerLink="/admin/runs">Admin</a>
+    </li>
+
+    <li>
+        <a routerLink="/">About</a>
+    </li>
+
+    <li *ngIf="(auth | async) !== null">
+        <a routerLink="/">Me</a>
+    </li>
+</ul>
+
