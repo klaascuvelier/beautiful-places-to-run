@@ -1,0 +1,32 @@
+<div class="admin-wrapper">
+    <h1>Manage runs</h1>
+
+    <table width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let run of runs$ | async">
+            <td valign="top">
+                <input type="text" (change)="update(run, 'location', $event.target.value)" [value]="run.location" />
+            </td>
+            <td valign="top">
+                <textarea (change)="update(run, 'description', $event.target.value)">{{ run.description }}</textarea>
+            </td>
+            <td valign="top">
+                <input type="text" (change)="update(run, 'image', $event.target.value)" [value]="run.image" />
+            </td>
+            <td valign="top">
+                <input type="text" (change)="update(run, 'link', $event.target.value)" [value]="run.link" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button (click)="addRun()">Add run +</button>
+</div>
