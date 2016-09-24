@@ -16,6 +16,7 @@ import { RunsOverviewComponent } from './runs-overview/runs-overview.component';
 import { AdminRunsComponent } from './admin-runs/admin-runs.component';
 
 import * as firebase from 'firebase';
+import { FooterComponent } from './footer/footer.component';
 
 
 const firebaseConfig = {
@@ -32,7 +33,8 @@ const firebaseConfig = {
         AppComponent,
         HeaderComponent,
         RunsOverviewComponent,
-        AdminRunsComponent
+        AdminRunsComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
