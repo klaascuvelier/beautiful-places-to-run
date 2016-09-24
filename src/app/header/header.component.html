@@ -11,10 +11,6 @@
         <a routerLink="/admin/runs">Admin</a>
     </li>
 
-    <li>
-        <a routerLink="/">About</a>
-    </li>
-
     <li *ngIf="(auth | async) !== null">
         <a routerLink="/">Me</a>
     </li>
