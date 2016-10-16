@@ -12,7 +12,7 @@
     </li>
 
     <li *ngIf="(auth | async) !== null">
-        <a routerLink="/">Me</a>
+        <a [routerLink]="[ '/' + (auth | async ).emailAddress ]">{{ (auth | async).displayName }}</a>
     </li>
 </ul>
 
