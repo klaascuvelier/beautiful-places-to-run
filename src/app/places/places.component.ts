@@ -4,15 +4,17 @@ import { Observable } from "rxjs";
 import { RunsService } from "../services/runs.service";
 
 @Component({
-    selector: 'app-runs-overview',
-    templateUrl: './runs-overview.component.html',
-    styleUrls: ['runs-overview.component.less']
+    selector: 'app-places',
+    templateUrl: 'places.component.html',
+    styleUrls: ['places.component.less']
 })
-export class RunsOverviewComponent implements OnInit {
+export class PlacesComponent implements OnInit {
 
     private runs$ = this.runsService.runs$;
+    private ready:Boolean = false;
 
     constructor(private runsService: RunsService) {
+        //http://www.clker.com/cliparts/b/9/a/0/13510206891495378645Check%20Mark.svg.med.png
     }
 
     ngOnInit() {}

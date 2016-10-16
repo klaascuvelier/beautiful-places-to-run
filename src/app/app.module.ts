@@ -12,13 +12,13 @@ import { AuthService } from "./services/auth.service";
 import { appRoutes } from "./app.routes";
 
 import { HeaderComponent } from './header/header.component';
-import { RunsOverviewComponent } from './runs-overview/runs-overview.component';
 import { AdminRunsComponent } from './admin-runs/admin-runs.component';
 
-import * as firebase from 'firebase';
 import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from "./landing/landing.component";
+import { PlacesComponent } from "./places/places.component";
 
+import * as firebase from 'firebase';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBZiYltRI85CCWMNVVJTm3nIRqjqeAZuXs",
@@ -34,7 +34,7 @@ const firebaseConfig = {
         AppComponent,
         LandingComponent,
         HeaderComponent,
-        RunsOverviewComponent,
+        PlacesComponent,
         AdminRunsComponent,
         FooterComponent
     ],

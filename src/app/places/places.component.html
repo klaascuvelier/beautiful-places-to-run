@@ -1,8 +1,13 @@
+<app-header (onLogin)="login()" [auth]="auth$"></app-header>
+
 <ul>
     <li *ngFor="let run of runs$ | async">
         <a href="#" class="run-details">
             <div class="run-image" [ngStyle]="{ 'background-image': 'url(' + run.image + ')' }"></div>
             <div class="run-location">{{ run.location }}</div>
+            <div class="run-check">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTnVf3JP_6Mt_sWpxN7-CDtuE9ZKwl7S2edacZ_M96Z4bpfn2Tywg" />
+            </div>
         </a>
 
     </li>

@@ -55,6 +55,12 @@ li {
         transition: transform 0.25s ease-in-out;
     }
 
+    .run-check {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
     &:hover {
         .run-image {
             transform: scale(1.1);
@@ -68,14 +74,14 @@ li {
 
 
 
-.generate-item(4, 28px, 10px 10px);
+.generate-item(4, 28px, 10px);
 
 @media screen and (max-width: 1200px) {
-    .generate-item(3, 24px, 8px 8px);
+    .generate-item(3, 24px, 8px);
 }
 
 @media screen and (max-width: 720px) {
-    .generate-item(2, 18px, 6px 6px);
+    .generate-item(2, 18px, 6px);
 }
 
 
@@ -101,8 +107,9 @@ li {
         height: @dimension;
     }
 
+    @padding-right: @font-size + @padding;
     .run-location {
-        padding: @padding;
+        padding: @padding @padding-right @padding @padding;
         font-size: @font-size;
         line-height: @font-size;
     }
