@@ -7,7 +7,7 @@
         height: 100vh;
         min-height: 400px;
         box-sizing: border-box;
-        padding-top: 100px;
+        padding-top: 30vh;
 
         background: transparent @hero-image center center no-repeat;
         background-size: cover;
@@ -58,15 +58,21 @@
 
         > li {
             display: inline-block;
-            padding: 5px 20px;
             margin: 0 10px;
-            border: 1px solid #fff;
-            text-align: center;
         }
 
         a {
             color: #fff;
             text-decoration: none;
+            padding: 5px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 2px;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
