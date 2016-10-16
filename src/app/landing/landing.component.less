@@ -1,0 +1,87 @@
+:host {
+    @hero-image: url(http://www.runnersworld.com/sites/runnersworld.com/files/styles/slideshow-desktop/public/articles/2016/02/rw0416_rav_01.jpg?itok=0UmeP1Em);
+
+    .hero {
+        position: relative;
+
+        height: 100vh;
+        min-height: 400px;
+        box-sizing: border-box;
+        padding-top: 100px;
+
+        background: transparent @hero-image center center no-repeat;
+        background-size: cover;
+
+        h1 {
+            margin: 0;
+            font-size: 48px;
+        }
+
+        .content {
+            color: #fff;
+            text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .arrow {
+            position: absolute;
+            left: 50%;
+            bottom: 25px;
+            transform: translateX(-50%) rotate(45deg);
+            width: 40px;
+            height: 40px;
+            border: 2px solid #fff;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-left-color: transparent;
+            border-top-color: transparent;
+
+            animation: pulsate 2.5s ease-in-out;
+            animation-iteration-count: infinite;
+            animation-delay: 2s;
+            opacity: 0.4;
+        }
+    }
+
+    .content {
+        max-width: 986px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .landing-menu {
+        display: inline-block;
+
+        margin: 20px 0 0 0;
+        padding: 0;
+        list-style-type: none;
+
+        > li {
+            display: inline-block;
+            padding: 5px 20px;
+            margin: 0 10px;
+            border: 1px solid #fff;
+            text-align: center;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    @media screen and (max-width: 1086px) {
+        .content {
+            width: auto;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+    }
+
+    @keyframes pulsate {
+        0% { opacity: 0.4}
+        50% { opacity: 1.0}
+        100% { opacity: 0.4}
+    }
+
+}
