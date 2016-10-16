@@ -17,6 +17,7 @@ import { AdminRunsComponent } from './admin-runs/admin-runs.component';
 
 import * as firebase from 'firebase';
 import { FooterComponent } from './footer/footer.component';
+import { LandingComponent } from "./landing/landing.component";
 
 
 const firebaseConfig = {
@@ -31,6 +32,7 @@ const firebaseConfig = {
 @NgModule({
     declarations: [
         AppComponent,
+        LandingComponent,
         HeaderComponent,
         RunsOverviewComponent,
         AdminRunsComponent,
