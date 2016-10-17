@@ -1,0 +1,55 @@
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.run-details {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    color: #333;
+    overflow: hidden;
+
+    .run-location {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.65);
+        transition: background 0.25s ease-in-out;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .run-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        transition: transform 0.25s ease-in-out;
+    }
+
+    .run-check {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    &:hover {
+        .run-image {
+            transform: scale(1.1);
+        }
+
+        .run-location {
+            background: rgba(255, 255, 255, 0.85);
+        }
+    }
+}

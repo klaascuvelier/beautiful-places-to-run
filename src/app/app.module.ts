@@ -13,10 +13,10 @@ import { appRoutes } from "./app.routes";
 
 import { HeaderComponent } from './header/header.component';
 import { AdminRunsComponent } from './admin-runs/admin-runs.component';
-
 import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from "./landing/landing.component";
 import { PlacesComponent } from "./places/places.component";
+import { RunCardComponent } from "./run-card/run-card.component";
 
 import * as firebase from 'firebase';
 
@@ -36,7 +36,8 @@ const firebaseConfig = {
         HeaderComponent,
         PlacesComponent,
         AdminRunsComponent,
-        FooterComponent
+        FooterComponent,
+        RunCardComponent,
     ],
     imports: [
         BrowserModule,
