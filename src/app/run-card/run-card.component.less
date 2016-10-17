@@ -7,34 +7,32 @@
 
 .run-details {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
     width: 100%;
     height: 100%;
+    padding: 20px;
 
     color: #333;
+    background: #fff;
     overflow: hidden;
 
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+
     .run-location {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.65);
-        transition: background 0.25s ease-in-out;
+        margin-top: 20px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        text-align: center;
     }
 
     .run-image {
-        width: 100%;
-        height: 100%;
+        flex: 1;
+        background: transparent center center no-repeat;
         background-size: cover;
-        background-position: center center;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        transition: transform 0.25s ease-in-out;
     }
 
     .run-check {
@@ -44,12 +42,8 @@
     }
 
     &:hover {
-        .run-image {
-            transform: scale(1.1);
-        }
-
-        .run-location {
-            background: rgba(255, 255, 255, 0.85);
-        }
+        transform: scale(1.05);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+        z-index: 200;
     }
 }
