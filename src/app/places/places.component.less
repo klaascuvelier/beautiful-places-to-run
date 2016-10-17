@@ -3,114 +3,22 @@
     background: #fff;
 }
 
-@dimension: (100vw / 3);
-@border-color: #fff;
-
 ul {
-    margin: 0;
+    margin: 50px 0;
     padding: 0;
     list-style-type: none;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
     flex-flow: row wrap;
-
-    border-top: 1px solid @border-color;
 }
 
 li {
     display: block;
-}
 
-.run-details {
-    position: relative;
-    display: block;
-    color: #333;
-    overflow: hidden;
-
-    border-right: 1px solid @border-color;
-    border-bottom: 1px solid @border-color;
-
-    .run-location {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.65);
-        transition: background 0.25s ease-in-out;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .run-image {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        transition: transform 0.25s ease-in-out;
-    }
-
-    .run-check {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-
-    &:hover {
-        .run-image {
-            transform: scale(1.1);
-        }
-
-        .run-location {
-            background: rgba(255, 255, 255, 0.85);
-        }
-    }
-}
-
-
-
-.generate-item(4, 28px, 10px);
-
-@media screen and (max-width: 1200px) {
-    .generate-item(3, 24px, 8px);
-}
-
-@media screen and (max-width: 720px) {
-    .generate-item(2, 18px, 6px);
-}
-
-
-.generate-item(@count, @font-size, @padding) {
-
-    @dimension: 100vw/@count;
-    @prev-count: @count+1;
-
-    li:nth-child(@{count}n+1) {
-        .run-details {
-            border-left: 1px solid @border-color;
-        }
-    }
-
-    li:nth-child(@{prev-count}n+1):not(:first-child) {
-        .run-details {
-            border-left: none;
-        }
-    }
-
-    .run-details {
-        width: @dimension;
-        height: @dimension;
-    }
-
-    @padding-right: @font-size + @padding;
-    .run-location {
-        padding: @padding @padding-right @padding @padding;
-        font-size: @font-size;
-        line-height: @font-size;
-    }
+    width: 280px;
+    height: 373px;
+    margin: 0 0 25px;
 }
