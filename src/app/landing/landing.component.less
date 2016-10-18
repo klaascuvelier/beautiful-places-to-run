@@ -50,6 +50,14 @@
 
         margin-left: auto;
         margin-right: auto;
+
+        button {
+            display: inline-block;
+            background: transparent;
+            border: none;
+            padding: 0;
+            text-decoration: underline;
+        }
     }
 
     .landing-menu {
@@ -64,7 +72,10 @@
             margin: 0 10px;
         }
 
+        button,
         a {
+            display: block;
+            background: transparent;
             color: #fff;
             text-decoration: none;
             padding: 5px 20px;
@@ -75,8 +86,9 @@
 
             transition: border-color 250ms ease-in-out;
 
-            &:hover {
-                border-color: rgba(255, 255, 255, 0.85)
+            &:active, &:focus, &:hover {
+                border-color: rgba(255, 255, 255, 0.85);
+                outline: none;
             }
         }
     }

@@ -7,4 +7,5 @@ export const appRoutes: Routes = [
     { path: '', component: LandingComponent },
     { path: 'places', component: PlacesComponent },
     { path: 'admin/runs', component: AdminRunsComponent },
+    { path: ':emailAddress', component: PlacesComponent },
 ];

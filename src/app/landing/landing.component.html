@@ -8,10 +8,11 @@
                 <a href="#about">About</a>
             </li>
             <li>
-                <a [routerLink]="['places']">Places</a>
+                <a [routerLink]="['places']" *ngIf="(auth$ | async) === null">Places</a>
+                <a [routerLink]="[(auth$ | async).emailAddress]" *ngIf="(auth$ | async) !== null">Places</a>
             </li>
-            <li>
-                <a href="#">Login</a>
+            <li *ngIf="(auth$ | async) === null">
+                <button type="button" (click)="login($event)">Login</button>
             </li>
         </ul>
     </div>
@@ -35,7 +36,7 @@
         </p>
 
         <p>
-            <a href="#">Log in</a> to your personal account, start running and check if items of your bucket list&hellip;
+            <button type="button" (click)="login()">Log in</button> to your personal account, start running and check if items of your bucket list&hellip;
         </p>
     </div>
 </div>
