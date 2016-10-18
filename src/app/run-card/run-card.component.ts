@@ -8,5 +8,5 @@ import { Component, Input } from "@angular/core";
 export class RunCardComponent {
     @Input() image: String;
     @Input() location: String;
-    @Input() completed:boolean;
+    @Input() completed: boolean;
 }
