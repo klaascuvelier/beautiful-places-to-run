@@ -16,7 +16,7 @@ export class AuthService {
                 if (auth !== null) {
                     user = {
                         displayName: auth.auth['displayName'],
-                        emailAddress: auth.auth['emailAddress'],
+                        emailAddress: auth.auth['email'],
                         uid: auth.uid,
                         isAdmin: auth.uid === 'JjWJHzU35XesS0RL1LCxkHTBS8h2'
                     };
