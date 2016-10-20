@@ -1,5 +1,11 @@
 <app-header (onLogin)="login()" [auth]="auth$"></app-header>
 
+<runner-card
+    *ngIf="ready && (runner$ | async) !== null"
+    [avatar]="$runner?.avatar"
+    [displayName]="$runner?.displayName"
+></runner-card>
+
 <ul *ngIf="ready">
     <li *ngFor="let run of runs$ | async">
         <run-card
