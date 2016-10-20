@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Run } from "../types/run.type";
-import { Observable } from "rxjs";
+import { Component, OnInit } from '@angular/core';
 import { RunsService } from "../services/runs.service";
+import { AuthService } from "../services/auth.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'app-places',
@@ -11,10 +11,28 @@ import { RunsService } from "../services/runs.service";
 export class PlacesComponent implements OnInit {
 
     private runs$ = this.runsService.runs$;
+    private user$ = this.runsService.runs$;
+    private loggedinUser$ = this.runsService.runs$;
     private ready:Boolean = false;
 
-    constructor(private runsService: RunsService) {
-        //http://www.clker.com/cliparts/b/9/a/0/13510206891495378645Check%20Mark.svg.med.png
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private authService: AuthService,
+        private runsService: RunsService
+    ) {
+
+        this.runs$.subscribe(data => {
+            if (data !== null) {
+                this.ready = true;
+            }
+        });
+
+        this.activatedRoute.params.subscribe(params => {
+           console.log(params['emailAddress']);
+        });
+
+
+
     }
 
     ngOnInit() {}

@@ -1,6 +1,6 @@
 <app-header (onLogin)="login()" [auth]="auth$"></app-header>
 
-<ul>
+<ul *ngIf="ready">
     <li *ngFor="let run of runs$ | async">
         <run-card
             [image]="run.image"
@@ -10,3 +10,8 @@
         ></run-card>
     </li>
 </ul>
+
+
+<div *ngIf="!ready">
+    <div class="loading-indicator"></div>
+</div>
