@@ -2,11 +2,34 @@ import { Injectable } from "@angular/core";
 import { AngularFire } from "angularfire2";
 import { Observable } from "rxjs";
 import { FirebaseListFactoryOpts } from "angularfire2/interfaces";
+import { Auth } from "../types/auth.type";
 
 @Injectable()
 export class UsersService {
 
     constructor(private af: AngularFire) {
+    }
+
+    storeUser (user:Auth) {
+        const subscription = this
+            .getUserByEmail(user.emailAddress)
+            .subscribe(data => {
+                if (data === null) {
+                    const userInfo = {
+                        completed: [],
+                        emailAddress: user.emailAddress,
+                        displayName: user.displayName,
+                        avatar: user.avatar,
+                        uid: user.uid,
+                        isAdmin: false
+                    };
+
+                    this.af.database.object(`/users/${user.uid}`).set(userInfo);
+                }
+                else {
+                    subscription.unsubscribe();
+                }
+            })
     }
 
     /**
@@ -28,21 +51,20 @@ export class UsersService {
     }
 
     /**
-     * Get the completed runs for the specified email address
+     * Get user info by email address
      * @param {string} emailAddress
      * @returns {Observable<any>}
      */
-    getUsageDataForUser (emailAddress:string):Observable<any> {
+    getUserByEmail (emailAddress:string):Observable<any> {
         return this
             .emailToUserId(emailAddress)
             .flatMap(userId => {
-                console.log('YOLO', userId);
-                 if (userId === null) {
-                     return Observable.of([]);
-                 }
-                 else {
-                     return this.af.database.object(`/users/${userId}/completed`);
-                 }
-             });
+                if (userId === null) {
+                    return Observable.of(null);
+                }
+                else {
+                    return this.af.database.object(`/users/${userId}`);
+                }
+            });
     }
 }
