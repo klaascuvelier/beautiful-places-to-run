@@ -19,6 +19,7 @@
     background: #fff;
     overflow: hidden;
     cursor: pointer;
+    border-bottom: 8px solid transparent;
 
     transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 
@@ -46,5 +47,9 @@
         transform: scale(1.02);
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
         z-index: 200;
+    }
+
+    &.completed {
+        border-bottom-color: #1aaf38;
     }
 }
