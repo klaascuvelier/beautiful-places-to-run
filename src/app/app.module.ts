@@ -9,6 +9,7 @@ import { AngularFireModule } from "angularfire2";
 
 import { RunsService } from "./services/runs.service";
 import { AuthService } from "./services/auth.service";
+import { UsersService } from "./services/users.services";
 import { appRoutes } from "./app.routes";
 
 import { HeaderComponent } from './header/header.component';
@@ -46,7 +47,7 @@ const firebaseConfig = {
         RouterModule.forRoot(appRoutes),
         AngularFireModule.initializeApp(firebaseConfig)
     ],
-    providers: [RunsService, AuthService],
+    providers: [RunsService, AuthService, UsersService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
