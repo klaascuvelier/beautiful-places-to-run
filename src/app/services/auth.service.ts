@@ -22,11 +22,11 @@ export class AuthService {
                         uid: auth.uid,
                         isAdmin: auth.uid === 'JjWJHzU35XesS0RL1LCxkHTBS8h2'
                     };
+
+                    this.usersService.storeUser(user);
                 }
 
                 this.auth$.next(user);
-
-                this.usersService.storeUser(user);
             });
     }
 
