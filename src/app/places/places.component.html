@@ -1,13 +1,15 @@
 <app-header (onLogin)="login()" [auth]="auth$"></app-header>
 
 <runner-card
-    *ngIf="ready && (runner$ | async) !== null"
-    [avatar]="$runner?.avatar"
-    [displayName]="$runner?.displayName"
+    *ngIf="ready && runner !== null"
+    [avatar]="runner.avatar"
+    [displayName]="runner.displayName"
+    [completedRunsCount]="runner.completed ? runner.completed.length : 0"
+    [totalRunsCount]="runs.length"
 ></runner-card>
 
-<ul *ngIf="ready">
-    <li *ngFor="let run of runs$ | async">
+<ul *ngIf="ready && runs.length">
+    <li *ngFor="let run of runs">
         <run-card
             [image]="run.image"
             [location]="run.location"
