@@ -5,6 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { zip } from "rxjs/observable/zip";
 import { Observable, Subscription, Subject } from "rxjs";
 import { UsersService } from "../services/users.services";
+import { Run } from "../types/run.type";
 
 const emailRegexp:RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -16,8 +17,8 @@ const emailRegexp:RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*
 })
 export class PlacesComponent implements OnDestroy {
 
-    private runs$:Subject<any> = new Subject<any>();
-    private runner$:Subject<any> = new Subject<any>();
+    private runs:Array<Run> = [];
+    private runner:any = null;
 
     private ready:Boolean = false;
     private subscription:Subscription = null;
@@ -43,11 +44,10 @@ export class PlacesComponent implements OnDestroy {
         // Let data come together
         const data = zip(this.runsService.runs$, runnerData$);
 
-        this.subscription = data.subscribe(data => {
+        this.subscription = data.subscribe(([runs, runner]) => {
+            this.runs = runs;
+            this.runner = runner;
             this.ready = true;
-
-            this.runs$.next(data[0]);
-            this.runner$.next(data[1]);
         });
     }
 
