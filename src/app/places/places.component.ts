@@ -95,8 +95,22 @@ export class PlacesComponent implements OnDestroy {
         }
     }
 
+    didRunnerCompleteRun (run:any) {
+        const completedRuns = this.runner && this.runner.completedRuns ? this.runner.completedRuns : [];
+        return completedRuns.indexOf(run['$key']) > -1;
+    }
+
     login () {
         this.authService.doLogin();
+    }
+
+    onCompleted (event) {
+        const { slug, completed } = event;
+        const run = this.runs.filter(run => run.slug === slug)[0] || null;
+
+        if (run !== null && this.runner) {
+            this.usersService.setRunCompletedForUser(run['$key'], this.runner.uid, completed);
+        }
     }
 
     ngOnDestroy () {
