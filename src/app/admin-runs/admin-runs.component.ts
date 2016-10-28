@@ -23,10 +23,10 @@ export class AdminRunsComponent implements OnInit {
         data[key] = value;
 
         if ((!item.hasOwnProperty('slug') && item.hasOwnProperty('location'))) {
-            data.slug = getSlug(item.location);
+            data['slug'] = getSlug(item.location);
         }
         else if (key === 'location') {
-            data.slug = getSlug(value);
+            data['slug'] = getSlug(value);
         }
 
         this.runs$.update(item.$key, data);
