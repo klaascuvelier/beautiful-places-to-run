@@ -6,6 +6,7 @@ import { Component, Input } from "@angular/core";
     styleUrls: [ 'run-card.component.less' ]
 })
 export class RunCardComponent {
+    @Input() slug: String;
     @Input() image: String;
     @Input() location: String;
     @Input() completed: boolean = false;

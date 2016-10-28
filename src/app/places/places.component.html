@@ -11,10 +11,10 @@
 <ul *ngIf="ready && runs.length">
     <li *ngFor="let run of runs">
         <run-card
+            [slug]="run.slug"
             [image]="run.image"
             [location]="run.location"
             [completed]="false"
-            (click)="showRunDetails(run)"
         ></run-card>
     </li>
 </ul>
