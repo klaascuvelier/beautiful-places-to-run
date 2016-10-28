@@ -1,13 +1,13 @@
 {
   "rules": {
     ".read": "true",
-    "write": "false",
-
+    ".write": "false",
     "runs": {
+      ".read": "true",
       ".write": "auth != null && auth.uid == 'JjWJHzU35XesS0RL1LCxkHTBS8h2'"
     },
-
     "users": {
+      ".read": "true",
       "$uid": {
         ".write": "auth.uid == $uid"
       }
