@@ -19,6 +19,7 @@ export class PlacesComponent implements OnDestroy {
 
     private runs:Array<Run> = [];
     private runner:any = null;
+    private selectedRun:Run = null;
 
     private ready:Boolean = false;
     private subscription:Subscription = null;
@@ -58,6 +59,14 @@ export class PlacesComponent implements OnDestroy {
         else {
             return Observable.of(null);
         }
+    }
+
+    showRunDetails (run) {
+        this.selectedRun = run;
+    }
+
+    resetRunDetail () {
+        this.showRunDetails(null);
     }
 
     ngOnDestroy () {

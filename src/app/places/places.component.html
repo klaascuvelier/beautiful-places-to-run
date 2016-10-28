@@ -19,7 +19,15 @@
     </li>
 </ul>
 
-
 <div *ngIf="!ready">
     <div class="loading-indicator"></div>
 </div>
+
+<run-detail *ngIf="selectedRun !== null"
+    [image]="selectedRun.image"
+    [description]="selectedRun.description"
+    [location]="selectedRun.location"
+    [completed]="false"
+    (onClose)="resetRunDetail()"
+>
+</run-detail>
