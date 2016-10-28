@@ -5,7 +5,9 @@ import { PlacesComponent } from "./places/places.component";
 
 export const appRoutes: Routes = [
     { path: '', component: LandingComponent },
-    { path: 'places', component: PlacesComponent },
     { path: 'admin/runs', component: AdminRunsComponent },
-    { path: ':emailAddress', component: PlacesComponent },
+    { path: 'places', component: PlacesComponent },
+    { path: 'places/:location', component: PlacesComponent },
+    { path: 'runner/:emailAddress', component: PlacesComponent },
+    { path: 'runner/:emailAddress/:location', component: PlacesComponent },
 ];
