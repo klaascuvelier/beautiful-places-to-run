@@ -4,7 +4,7 @@
     "write": "false",
 
     "runs": {
-      ".write": "auth != null && auth.uid == 'JjWJHzU35XesS0RL1LCxkHTBS8h2'",
+      ".write": "auth != null && auth.uid == 'JjWJHzU35XesS0RL1LCxkHTBS8h2'"
     },
 
     "users": {
