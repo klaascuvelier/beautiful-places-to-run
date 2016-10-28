@@ -18,6 +18,7 @@ const emailRegexp:RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*
 })
 export class PlacesComponent implements OnDestroy {
 
+    private auth$ = this.authService.auth$;
     private runs:Array<Run> = [];
     private runner:any = null;
     private selectedRun:Run = null;
@@ -92,6 +93,10 @@ export class PlacesComponent implements OnDestroy {
             const newRoute = route.url.slice(0, -1).map(segment => segment.path).join('/');
             this.router.navigateByUrl(`/${newRoute}`);
         }
+    }
+
+    login () {
+        this.authService.doLogin();
     }
 
     ngOnDestroy () {
