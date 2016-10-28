@@ -1,6 +1,16 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "auth != null && auth.uid == 'JjWJHzU35XesS0RL1LCxkHTBS8h2'"
+    "write": "false",
+
+    "runs": {
+      ".write": "auth != null && auth.uid == 'JjWJHzU35XesS0RL1LCxkHTBS8h2'",
+    },
+
+    "users": {
+      "$uid": {
+        ".write": "auth.uid == $uid"
+      }
+    }
   }
 }
