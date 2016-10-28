@@ -8,8 +8,8 @@
                 <a href="#about">About</a>
             </li>
             <li>
-                <a [routerLink]="['places']" *ngIf="(auth$ | async) === null">Places</a>
-                <a [routerLink]="['runner', (auth$ | async).emailAddress]" *ngIf="(auth$ | async) !== null">Places</a>
+                <a [routerLink]="['/places']" *ngIf="(auth$ | async) === null">Places</a>
+                <a [routerLink]="['/runner', (auth$ | async).emailAddress]" *ngIf="(auth$ | async) !== null">Places</a>
             </li>
             <li *ngIf="(auth$ | async) === null">
                 <button type="button" (click)="login($event)">Login</button>
