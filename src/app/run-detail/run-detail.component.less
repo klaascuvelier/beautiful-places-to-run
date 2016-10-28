@@ -1,0 +1,46 @@
+:host {
+    position: fixed;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 100;
+
+    .run-detail {
+        position: absolute;
+        left:5%;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #fff;
+        padding: 20px;
+    }
+
+    .run-location {
+        font-size: 120%;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .run-data {
+        min-height: 200px;
+    }
+
+    .run-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 20px 20px 0;
+
+        background: transparent center center no-repeat;
+        background-size: cover;
+
+        float: left;
+    }
+
+    .run-description {
+        flex: 1;
+    }
+
+}

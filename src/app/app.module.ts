@@ -19,6 +19,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { PlacesComponent } from "./places/places.component";
 import { RunCardComponent } from "./run-card/run-card.component";
 import { RunnerCardComponent } from "./runner-card/runner-card.component";
+import { RunDetailComponent } from "./run-detail/run-detail.component";
 
 import * as firebase from 'firebase';
 
@@ -40,7 +41,8 @@ const firebaseConfig = {
         AdminRunsComponent,
         FooterComponent,
         RunCardComponent,
-        RunnerCardComponent
+        RunnerCardComponent,
+        RunDetailComponent
     ],
     imports: [
         BrowserModule,

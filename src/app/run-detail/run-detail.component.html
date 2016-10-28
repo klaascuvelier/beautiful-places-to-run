@@ -1,0 +1,11 @@
+<div class="run-detail">
+    <div class="run-location">{{ location }}</div>
+    <div class="run-data">
+        <div class="run-image" [ngStyle]="{ 'background-image': 'url(' + image + ')' }"></div>
+        <div class="run-description">{{ description }}</div>
+    </div>
+
+    <div class="run-check" *ngIf="completed">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTnVf3JP_6Mt_sWpxN7-CDtuE9ZKwl7S2edacZ_M96Z4bpfn2Tywg" />
+    </div>
+</div>
