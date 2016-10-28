@@ -5,7 +5,12 @@
         <div class="run-description">{{ description }}</div>
     </div>
 
-    <div class="run-check" *ngIf="completed">
-        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTnVf3JP_6Mt_sWpxN7-CDtuE9ZKwl7S2edacZ_M96Z4bpfn2Tywg" />
+    <div class="run-complete" *ngIf="!isVisitor">
+        <div *ngIf="!isLoggedIn" class="not-logged-in">Log in first to check if you ran at this place</div>
+
+        <label *ngIf="isLoggedIn">
+            <input type="checkbox" [checked]="completed" (change)="onCompleteChange($event.target.checked)" />
+            I ran at this place
+        </label>
     </div>
 </div>
