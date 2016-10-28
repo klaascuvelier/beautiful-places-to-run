@@ -67,4 +67,27 @@ export class UsersService {
                 }
             });
     }
+
+    /**
+     * Set run completed or not completed for the specified user
+     * @param {String} runKey
+     * @param {String} userId
+     * @param {boolean} completed
+     */
+    setRunCompletedForUser(runKey:String, userId:String, completed:boolean) {
+
+        const user = this.af.database.object(`/users/${userId}`);
+
+        user.take(1).subscribe(info => {
+
+            // Auto filter out this run, re-add it later if needed
+            const completedRuns = (info.completedRuns || []).filter(completedRun => completedRun !== runKey);
+
+            if (completed === true) {
+                completedRuns.push(runKey);
+            }
+
+            user.update({ completedRuns });
+        });
+    }
 }
