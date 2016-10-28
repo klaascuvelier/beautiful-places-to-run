@@ -8,8 +8,12 @@ import { Component, Input, EventEmitter, Output, HostListener } from "@angular/c
 export class RunDetailComponent {
     @Input() image: String;
     @Input() location: String;
+    @Input() slug: String;
     @Input() description: String;
     @Input() completed: boolean;
+
+    @Input() isVisitor: boolean;
+    @Input() isLoggedIn: boolean;
 
     @Output() onClose: EventEmitter<any> = new EventEmitter();
     @Output() onCompleted: EventEmitter<any> = new EventEmitter();
@@ -19,5 +23,9 @@ export class RunDetailComponent {
         if (event.target.tagName === 'RUN-DETAIL') {
             this.onClose.emit();
         }
+    }
+
+    onCompleteChange (completed) {
+        this.onCompleted.emit({ slug: this.slug, completed });
     }
 }

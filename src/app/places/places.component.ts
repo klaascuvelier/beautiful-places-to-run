@@ -2,8 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { RunsService } from "../services/runs.service";
 import { AuthService } from "../services/auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { zip } from "rxjs/observable/zip";
-import { Observable, Subscription, Subject } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { UsersService } from "../services/users.services";
 import { Run } from "../types/run.type";
 import { combineLatest } from "rxjs/observable/combineLatest";
@@ -40,13 +39,13 @@ export class PlacesComponent implements OnDestroy {
         const userEmail$ = this.authService.auth$.map(info => info !== null ? info['emailAddress'] : null);
 
         // Get email from above observables
-        const usageEmail$ = zip(urlEmail$, userEmail$).map(data => data[0] !== null ? data[0] : data[1]);
+        const usageEmail$ = combineLatest(urlEmail$, userEmail$).map(data => data[0] !== null ? data[0] : data[1]);
 
         // Get runner info for email
         const runnerData$ = usageEmail$.flatMap(email => this.getRunnerData(email));
 
         // Let data come together
-        const data = zip(this.runsService.runs$, runnerData$);
+        const data = combineLatest(this.runsService.runs$, runnerData$);
 
         // Wait for runs + runner data
         const dataSubscription = data.subscribe(([runs, runner]) => {

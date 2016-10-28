@@ -4,7 +4,7 @@
     *ngIf="ready && runner !== null"
     [avatar]="runner.avatar"
     [displayName]="runner.displayName"
-    [completedRunsCount]="runner.completed ? runner.completed.length : 0"
+    [completedRunsCount]="runner.completedRuns ? runner.completedRuns.length : 0"
     [totalRunsCount]="runs.length"
 ></runner-card>
 
@@ -14,7 +14,7 @@
             [slug]="run.slug"
             [image]="run.image"
             [location]="run.location"
-            [completed]="false"
+            [completed]="didRunnerCompleteRun(run)"
         ></run-card>
     </li>
 </ul>
@@ -27,7 +27,11 @@
     [image]="selectedRun.image"
     [description]="selectedRun.description"
     [location]="selectedRun.location"
-    [completed]="false"
+    [slug]="selectedRun.slug"
+    [completed]="didRunnerCompleteRun(selectedRun)"
+    [isLoggedIn]="(auth$ | async) !== null"
+    [isVisitor]="false"
     (onClose)="resetRunDetail()"
+    (onCompleted)="onCompleted($event)"
 >
 </run-detail>
