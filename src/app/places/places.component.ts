@@ -20,7 +20,6 @@ export class PlacesComponent implements OnDestroy {
     private auth$ = this.authService.auth$;
     private runs:Array<Run> = [];
     private runner:any = null;
-    private selectedRun:Run = null;
 
     private ready:Boolean = false;
     private subscriptions:Array<Subscription> = [];
@@ -54,20 +53,7 @@ export class PlacesComponent implements OnDestroy {
             this.ready = true;
         });
 
-        // Wait for route data and runs
-        const routeSubscription = combineLatest(this.runsService.runs$, this.activatedRoute.params)
-            .subscribe(([runs, params]) => {
-                if (params.hasOwnProperty('location')) {
-                    const run = runs.filter(run => run.slug === params['location'])[0] || null;
-
-                    if (run !== null) {
-                        this.showRunDetails(run);
-                    }
-                }
-            });
-
         this.subscriptions.push(dataSubscription);
-        this.subscriptions.push(routeSubscription);
     }
 
     getRunnerData (email):Observable<any> {
@@ -79,21 +65,6 @@ export class PlacesComponent implements OnDestroy {
         }
     }
 
-    showRunDetails (run) {
-        this.selectedRun = run;
-    }
-
-    resetRunDetail () {
-        this.showRunDetails(null);
-
-        const route = this.activatedRoute.snapshot;
-
-        if (route.params.hasOwnProperty('location')) {
-            const newRoute = route.url.slice(0, -1).map(segment => segment.path).join('/');
-            this.router.navigateByUrl(`/${newRoute}`);
-        }
-    }
-
     didRunnerCompleteRun (run:any) {
         const completedRuns = this.runner && this.runner.completedRuns ? this.runner.completedRuns : [];
         return completedRuns.indexOf(run['$key']) > -1;
@@ -101,15 +72,6 @@ export class PlacesComponent implements OnDestroy {
 
     login () {
         this.authService.doLogin();
-    }
-
-    onCompleted (event) {
-        const { slug, completed } = event;
-        const run = this.runs.filter(run => run.slug === slug)[0] || null;
-
-        if (run !== null && this.runner) {
-            this.usersService.setRunCompletedForUser(run['$key'], this.runner.uid, completed);
-        }
     }
 
     ngOnDestroy () {

@@ -23,15 +23,4 @@
     <div class="loading-indicator"></div>
 </div>
 
-<run-detail *ngIf="selectedRun !== null"
-    [image]="selectedRun.image"
-    [description]="selectedRun.description"
-    [location]="selectedRun.location"
-    [slug]="selectedRun.slug"
-    [completed]="didRunnerCompleteRun(selectedRun)"
-    [isLoggedIn]="(auth$ | async) !== null"
-    [isVisitor]="false"
-    (onClose)="resetRunDetail()"
-    (onCompleted)="onCompleted($event)"
->
-</run-detail>
+<router-outlet></router-outlet>
